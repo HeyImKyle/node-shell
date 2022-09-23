@@ -1,10 +1,5 @@
-// process.stdout.write('prompt > ');
-const pwd = require('./pwd')
-// const cmd = data.toString().trim();
+const pwd = require("./pwd");
 
-console.log('this is the type', typeof pwd)
-// const cmd = process.stdin.on('input', (input) => {
-//     input.toString().trim()
-// })
+console.log("this is the type", typeof pwd);
 
-process.stdin.on(pwd());
+pwd();

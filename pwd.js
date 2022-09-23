@@ -1,20 +1,16 @@
-function pwd(data) {
-    process.stdout.write('prompt > ');
-    if (data === 'pwd') {
-    process.stdout.write(process.cwd())
-    } else {
-    process.stdout.write('You typed: ' + data);}
-    process.stdout.write('\nprompt > ') 
-}
+const { defaultMaxListeners } = require("testem/lib/server");
 
-// function pwd (dataa) {process.stdin.on('innerfunc' =(data) => {
-//     process.stdout.write('prompt > ');
-//     if (data === 'pwd') {
-//     process.stdout.write(process.cwd())
-//     } else {
-//     process.stdout.write('You typed: ' + data);}
-//     process.stdout.write('\nprompt > ') 
-// })
-// }
+function pwd() {
+  process.stdout.write("prompt > ");
+  process.stdin.on("data", (data) => {
+    const cmd = data.toString().trim();
+    if (cmd === "pwd") {
+      process.stdout.write(process.cwd());
+    } else {
+      process.stdout.write("You typed: " + cmd);
+    }
+    process.stdout.write("\nprompt > ");
+  });
+}
 
 module.exports = pwd;
